@@ -1,0 +1,27 @@
+{
+  "name": "3DGRUT GPU Dev Container",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "runArgs": [
+    "--gpus", "all",
+    "--ipc=host"
+  ],
+  "mounts": [
+    "source=3dgrut-venv,target=${containerWorkspaceFolder}/.venv,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "workspaceFolder": "/workspace",
+  "remoteUser": "root"
+}
